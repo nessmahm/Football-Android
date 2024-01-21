@@ -8,5 +8,5 @@ data class Team(
     val team_founded: String,
     val team_key: String,
     val team_name: String,
-    val venue: Venue
+    val venue: Any
 )

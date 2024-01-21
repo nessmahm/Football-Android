@@ -11,8 +11,8 @@ import retrofit2.Response
 class TeamsViewModel {
         private val teamsResponse = MutableLiveData< TeamsResponse >()
         var teams : LiveData<TeamsResponse> = teamsResponse
-        /*fun getTeams(){
-                RetrofitHelper.retrofitService.getLeagues().enqueue(
+        fun getTeams(leagueId: String){
+                RetrofitHelper.retrofitService.getTeamsByLeague("get_teams", leagueId).enqueue(
                         object : Callback<TeamsResponse> {
                                 override fun onResponse(
                                         call: Call<TeamsResponse>,
@@ -30,7 +30,7 @@ class TeamsViewModel {
                                 }
                         }
                 )
-        }*/
+        }
 
 
 }

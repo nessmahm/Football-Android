@@ -1,5 +1,6 @@
 package com.example.project
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material3.Text
@@ -26,6 +27,10 @@ class MainActivity : AppCompatActivity() {
                 println("daaaata" + it[0].league_name)
                 binding.text.text = it[0].league_name
             }
+        }
+        binding.testbutton.setOnClickListener {
+            _ ->  val intent = Intent(this, TeamActivity::class.java)
+            startActivity(intent)
         }
     }
 
