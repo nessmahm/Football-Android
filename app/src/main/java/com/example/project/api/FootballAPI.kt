@@ -6,10 +6,8 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 interface FootballAPI {
-    @GET("/")
+    @GET("/ap")
     fun getLeagues(@Query("action") action: String) : Call<LeagueResponse>
-
     @GET("/")
-    fun getTeamsByLeague(@Query("action") action: String, @Query("league_id") leagueId: String): Call<TeamsResponse>
-
+    fun getTeam(@Query("action") action: String) : Call<TeamsResponse>
 }
