@@ -6,24 +6,29 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.project.api.TeamsViewModel
+import com.example.project.api.LeaguesViewModel
 import com.example.project.databinding.ActivityMainBinding
-import com.example.project.modals.TeamsResponse
 import com.example.project.ui.theme.ProjectTheme
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
-    var footballViewModel : TeamsViewModel = TeamsViewModel()
+    var footballViewModel : LeaguesViewModel = LeaguesViewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        footballViewModel.teams.observe(this) {
-            if (it as TeamsResponse != null)
-                println("daaaata"+it[0].team_badge)
-            binding.text.text=it[0].team_badge
+        footballViewModel.getTeams()
+        // Initialize binding
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        footballViewModel.teams.observe(this) { teamsResponse ->
+            teamsResponse?.let {
+                println("daaaata" + it[0].league_name)
+                binding.text.text = it[0].league_name
+            }
         }
     }
+
 }
 
 @Composable
