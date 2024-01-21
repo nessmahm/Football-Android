@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitHelper {
     const val apiKey:String = "d67f02e3ed39f68f5df3de5bcba510a51eda15f9eb3c69f2c46f6f6345851a1e";
 
-    private const val baseUrl = "https://apiv3.apifootball.com/?APIkey=$apiKey"
+    private const val baseUrl = "https://apiv3.apifootball.com"
     /**
      * The Retrofit object with Gson converter.
      */
