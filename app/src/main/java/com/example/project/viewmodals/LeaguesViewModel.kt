@@ -1,8 +1,9 @@
-package com.example.project.api
+package com.example.project.viewmodals
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.project.api.RetrofitHelper
 import com.example.project.modals.LeagueResponse
 import retrofit2.Call
 import retrofit2.Callback

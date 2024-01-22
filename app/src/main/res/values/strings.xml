@@ -3,4 +3,7 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_teams">TeamsActivity</string>
     <string name="title_activity_team">TeamActivity</string>
+    <string name="title_activity_teams_details">TeamsDetailsActivity</string>
+    <string name="title_activity_team_details_activityy">TeamDetailsActivityy</string>
+    <string name="title_activity_team_details">teamDetails</string>
 </resources>

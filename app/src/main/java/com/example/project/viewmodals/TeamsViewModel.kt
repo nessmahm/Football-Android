@@ -1,8 +1,9 @@
-package com.example.project.api
+package com.example.project.viewmodals
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.project.api.RetrofitHelper
 import com.example.project.modals.TeamsResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -31,6 +32,28 @@ class TeamsViewModel {
                         }
                 )
         }
+        fun getTeam(teamId:String){
+                RetrofitHelper.retrofitService.getTeam("get_teams",teamId).enqueue(
+                        object : Callback<TeamsResponse> {
+                                override fun onResponse(
+                                        call: Call<TeamsResponse>,
+                                        response: Response<TeamsResponse>
+                                ) {
+                                        Log.d("Retrofit teams", response.body().toString())
+                                        if(response.isSuccessful ){
+                                                teamsResponse.value = response.body()
+                                                teams = teamsResponse
+                                        }
+                                }
+
+                                override fun onFailure(call: Call<TeamsResponse>, t: Throwable) {
+                                        Log.e("Retrofit", "API call failed: ${t.message}")
+
+                                }
+                        }
+                )
+        }
+
 
 
 }

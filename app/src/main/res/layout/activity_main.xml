@@ -3,17 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+    android:layout_height="200dp"
+    tools:context=".activities.MainActivity">
+
     <Button
         android:id="@+id/testbutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="click here"
         />
+
+    <AutoCompleteTextView
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:hint="Search for a country here"
+        android:layout_margin="20dp"
+        android:layout_marginBottom="8dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/testbutton"
+        tools:layout_editor_absoluteX="20dp">
+
+    </AutoCompleteTextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
