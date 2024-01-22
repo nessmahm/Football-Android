@@ -43,8 +43,12 @@ class MainActivity : AppCompatActivity() {
             Log.e("Retrofit countryy", ": ${selectedCountryId}")
         }
 
-        binding.testbutton.setOnClickListener {
+        binding.testbutton2.setOnClickListener {
             _ ->  val intent = Intent(this, TeamDetailsActivity::class.java)
+            startActivity(intent)
+        }
+        binding.testbutton1.setOnClickListener {
+                _ ->  val intent = Intent(this, TeamActivity::class.java)
             startActivity(intent)
         }
     }

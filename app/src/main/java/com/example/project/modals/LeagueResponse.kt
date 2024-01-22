@@ -1,3 +1,3 @@
 package com.example.project.modals
 
-class LeagueResponse : ArrayList<League>()
+class LeagueResponse : ArrayList<LeagueResponseItem>()

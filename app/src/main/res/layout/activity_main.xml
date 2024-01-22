@@ -7,11 +7,19 @@
     tools:context=".activities.MainActivity">
 
     <Button
-        android:id="@+id/testbutton"
+        android:id="@+id/testbutton1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="click here"
+        android:text="League details here"
         />
+    <Button
+    android:id="@+id/testbutton2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="team details here"
+    app:layout_constraintTop_toBottomOf="@+id/testbutton1"
+
+    />
 
     <AutoCompleteTextView
         android:id="@+id/spinner"
@@ -20,7 +28,7 @@
         android:layout_margin="20dp"
         android:layout_marginBottom="8dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/testbutton"
+        app:layout_constraintTop_toBottomOf="@+id/testbutton2"
         tools:layout_editor_absoluteX="20dp">
 
     </AutoCompleteTextView>

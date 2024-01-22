@@ -13,6 +13,7 @@ import com.example.project.api.TeamAdapter
 import com.example.project.databinding.ActivityMainBinding
 import com.example.project.databinding.TeamActivityBinding
 import com.example.project.databinding.TeamDetailsActivityBinding
+import com.example.project.modals.Venue
 import com.example.project.viewmodals.TeamsViewModel
 
 class TeamDetailsActivity : ComponentActivity() {
@@ -32,10 +33,15 @@ class TeamDetailsActivity : ComponentActivity() {
                     binding.teamCity.text=it[0].team_country
                     binding.teamName.text=it[0].team_name
                     binding.foundationTime.text=it[0].team_founded
-                    binding.venueAddress.text=it[0].venue.venue_address
-                    binding.venueCapacity.text=it[0].venue.venue_capacity
-                    binding.venueCity.text=it[0].venue.venue_city
-                    binding.venueName.text=it[0].venue.venue_name
+                    if(it[0].venue is Venue)
+                    {
+                        val venueObject = it[0].venue as Venue
+                        binding.venueAddress.text=venueObject.venue_address
+                        binding.venueCapacity.text=venueObject.venue_capacity
+                        binding.venueCity.text=venueObject.venue_city
+                        binding.venueName.text=venueObject.venue_name
+                    }
+
                     Glide.with(this)
                         .load(it[0].team_badge)
                         .diskCacheStrategy(DiskCacheStrategy.ALL) // Optional: caching strategy
