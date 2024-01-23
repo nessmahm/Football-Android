@@ -6,4 +6,5 @@
     <string name="title_activity_teams_details">TeamsDetailsActivity</string>
     <string name="title_activity_team_details_activityy">TeamDetailsActivityy</string>
     <string name="title_activity_team_details">teamDetails</string>
+    <string name="title_activity_live_score">LiveScoreActivity</string>
 </resources>

@@ -20,7 +20,14 @@
     app:layout_constraintTop_toBottomOf="@+id/testbutton1"
 
     />
+    <Button
+        android:id="@+id/testbutton3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Live scores here"
+        app:layout_constraintTop_toBottomOf="@+id/testbutton2"
 
+        />
     <AutoCompleteTextView
         android:id="@+id/spinner"
         android:layout_width="match_parent"
@@ -28,7 +35,7 @@
         android:layout_margin="20dp"
         android:layout_marginBottom="8dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/testbutton2"
+        app:layout_constraintTop_toBottomOf="@+id/testbutton3"
         tools:layout_editor_absoluteX="20dp">
 
     </AutoCompleteTextView>

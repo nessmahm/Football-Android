@@ -51,6 +51,10 @@ class MainActivity : AppCompatActivity() {
                 _ ->  val intent = Intent(this, TeamActivity::class.java)
             startActivity(intent)
         }
+        binding.testbutton3.setOnClickListener {
+                _ ->  val intent = Intent(this, LiveScoreActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 }

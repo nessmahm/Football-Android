@@ -2,6 +2,7 @@ package com.example.project.api;
 
 import com.example.project.modals.CountryResponse
 import com.example.project.modals.LeagueResponse
+import com.example.project.modals.LiveScoreResponse
 import com.example.project.modals.TeamsResponse
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -16,4 +17,6 @@ interface FootballAPI {
     fun getTeam(@Query("action") action: String,@Query("team_id") teamId: String) : Call<TeamsResponse>
     @GET("/")
     fun getCountries(@Query("action") action: String) : Call<CountryResponse>
+    @GET("/")
+    fun getLiveScore(@Query("action") action: String,@Query("match_live") matchId: String) : Call<LiveScoreResponse>
 }
