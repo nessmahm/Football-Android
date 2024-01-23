@@ -8,11 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.project.R
-import com.example.project.modals.LeaguesResponse
 import com.example.project.modals.LeaguesResponseItem
 
 class LeagueAdapter(
-    private val leagues: LeaguesResponse?,
+    private val leagues: List<LeaguesResponseItem>,
     private val onLeagueClick: (String) -> Unit
 ) : RecyclerView.Adapter<LeagueAdapter.LeaguesViewHolder>() {
 
