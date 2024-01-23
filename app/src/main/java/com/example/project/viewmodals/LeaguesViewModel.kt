@@ -1,34 +1,33 @@
-package com.example.project.viewmodals
+package com.example.project.api
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.project.api.RetrofitHelper
 import com.example.project.modals.LeagueResponse
+import com.example.project.modals.LeaguesResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class LeaguesViewModel {
-    private val leagueResponse = MutableLiveData<LeagueResponse>()
-    var teams : LiveData<LeagueResponse> = leagueResponse
-    fun getTeams(){
+    private val leagueResponse = MutableLiveData<LeaguesResponse>()
+    var leagues: LiveData<LeaguesResponse> = leagueResponse
+
+    fun getLeagues() {
         RetrofitHelper.retrofitService.getLeagues("get_leagues").enqueue(
-            object : Callback<LeagueResponse> {
+            object : Callback<LeaguesResponse> {
                 override fun onResponse(
-                    call: Call<LeagueResponse>,
-                    response: Response<LeagueResponse>
+                    call: Call<LeaguesResponse>,
+                    response: Response<LeaguesResponse>
                 ) {
                     Log.d("Retrofit", response.body().toString())
-                    if(response.isSuccessful){
+                    if (response.isSuccessful) {
                         leagueResponse.value = response.body()
-                        teams = leagueResponse
                     }
                 }
 
-                override fun onFailure(call: Call<LeagueResponse>, t: Throwable) {
+                override fun onFailure(call: Call<LeaguesResponse>, t: Throwable) {
                     Log.e("Retrofit", "API call failed: ${t.message}")
-
                 }
             }
         )

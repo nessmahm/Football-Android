@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.project.api.TeamAdapter
 import com.example.project.databinding.ActivityMainBinding
 import com.example.project.databinding.TeamActivityBinding
-import com.example.project.api.LeagueViewModel
 import com.example.project.modals.Team
 import com.example.project.ui.theme.ProjectTheme
 import com.example.project.viewmodals.TeamsViewModel
