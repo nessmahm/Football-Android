@@ -19,13 +19,14 @@ The Football Stats App is a mobile application that brings you real-time updates
 ## Features <a name="features"></a>
 
 1.  **Real-Time Match Updates**: Stay up-to-date with live scores, minute-by-minute commentary, and key moments of the game, ensuring you never miss a thrilling moment.
-  
+![live-score](./images/live_score.jpg)  
 2. **League Information**:  Explore detailed information about various football leagues worldwide in a clean and organized manner. Utilize the search bar to filter leagues by country and name. Clicking on a league navigates to its details, providing a comprehensive overview.
-
+![leagues](./images/leagues.jpg)
+![search](./images/search.jpg)
 3. **League's team list**:  Dive deep into team profiles to gain a comprehensive understanding of each team's history, achievements, and current standings within their respective leagues.
-
+![teams](./images/teams.jpg)
 4. **Player Profiles and Team Details**:Discover detailed player profiles, including career statistics, personal achievements, and the latest news. Access the list of players by clicking on a specific team, providing in-depth insights into the team's roster and player details.
-
+![team_details](./images/team_details.jpg)
 
 ## Technologies Used <a name="technologies"></a>
 
