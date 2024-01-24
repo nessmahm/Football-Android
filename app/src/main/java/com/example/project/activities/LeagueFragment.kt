@@ -5,31 +5,39 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.EditText
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.project.api.LeaguesViewModel
-import com.example.project.databinding.LeagueActivityBinding
+import com.example.project.databinding.LeagueFragmentBinding
 import com.example.project.modals.LeaguesResponseItem
 
-class LeagueActivity : AppCompatActivity() {
+class LeagueFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var binding: LeagueActivityBinding
+    private lateinit var binding: LeagueFragmentBinding
     private lateinit var searchEditText: EditText
-    private val leaguesViewModel: LeaguesViewModel = LeaguesViewModel()
+    private var leaguesViewModel: LeaguesViewModel = LeaguesViewModel()
     private var originalLeaguesList: List<LeaguesResponseItem> = emptyList()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = LeagueFragmentBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        binding = LeagueActivityBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         // Initialize RecyclerView
         recyclerView = binding.leagueRecyclerView
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // Initialize Search EditText
         searchEditText = binding.searchEditText
@@ -47,7 +55,7 @@ class LeagueActivity : AppCompatActivity() {
         leaguesViewModel.getLeagues()
 
         // Observe the LiveData for leagues
-        leaguesViewModel.leagues.observe(this) { leaguesResponse ->
+        leaguesViewModel.leagues.observe(viewLifecycleOwner) { leaguesResponse ->
             leaguesResponse?.let {
                 if (it.isNotEmpty()) {
                     originalLeaguesList = it
@@ -71,7 +79,7 @@ class LeagueActivity : AppCompatActivity() {
     }
 
     private fun navigateToTeamActivity(leagueId: String) {
-        val intent = Intent(this, TeamActivity::class.java)
+        val intent = Intent(requireContext(), TeamActivity::class.java)
         intent.putExtra("league_id", leagueId)
         startActivity(intent)
     }

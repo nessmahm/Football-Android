@@ -3,7 +3,6 @@ package com.example.project.api
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.project.modals.LeagueResponse
 import com.example.project.modals.LeaguesResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -14,7 +13,7 @@ class LeaguesViewModel {
     var leagues: LiveData<LeaguesResponse> = leagueResponse
 
     fun getLeagues() {
-        RetrofitHelper.retrofitService.getLeagues("get_leagues").enqueue(
+        RetrofitHelper.retrofitService.getLeagues().enqueue(
             object : Callback<LeaguesResponse> {
                 override fun onResponse(
                     call: Call<LeaguesResponse>,

@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.project.api.RetrofitHelper
 import com.example.project.modals.LiveScoreResponse
-import com.example.project.modals.TeamsResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -14,7 +13,7 @@ class LiveScoreViewModel {
     private val liveScoreResponse = MutableLiveData< LiveScoreResponse >()
     var liveScore : LiveData<LiveScoreResponse> = liveScoreResponse
     fun getLiveScores(){
-        RetrofitHelper.retrofitService.getLiveScore("get_events","1").enqueue(
+        RetrofitHelper.retrofitService.getLiveScore("1").enqueue(
             object : Callback<LiveScoreResponse> {
                 override fun onResponse(
                     call: Call<LiveScoreResponse>,

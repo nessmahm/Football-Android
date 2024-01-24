@@ -13,7 +13,7 @@ class CountriesViewModel {
     private val countriesResponse = MutableLiveData< CountryResponse >()
     var countries : LiveData<CountryResponse> = countriesResponse
     fun getCountries(){
-        RetrofitHelper.retrofitService.getCountries("get_countries").enqueue(
+        RetrofitHelper.retrofitService.getCountries().enqueue(
             object : Callback<CountryResponse> {
                 override fun onResponse(
                     call: Call<CountryResponse>,

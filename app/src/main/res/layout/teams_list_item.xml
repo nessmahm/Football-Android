@@ -1,32 +1,46 @@
 <!-- res/layout/item_team.xml -->
-<LinearLayout
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_margin="8dp"
+    android:elevation="4dp"
+    android:radius="8dp"
+    >
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="#fff"
+        >
     <ImageView
         android:id="@+id/teamBadgeImageView"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="40dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="16dp"
+        android:layout_alignParentStart="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/placeholder_team"
-    />
+        android:src="@drawable/placeholder_team" />
 
-    <TextView
-        android:id="@+id/teamNameTextView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textStyle="bold"/>
+        android:layout_toEndOf="@id/teamBadgeImageView"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/teamCountryTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"/>
+        <TextView
+            android:id="@+id/teamNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
 
-    <!-- Add other views as needed -->
-
-</LinearLayout>
+        <TextView
+            android:id="@+id/teamCountryTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"/>
+    </LinearLayout>
+    </RelativeLayout>
+    </androidx.cardview.widget.CardView>

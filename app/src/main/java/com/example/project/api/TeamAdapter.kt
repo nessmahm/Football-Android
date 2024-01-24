@@ -12,7 +12,7 @@ import com.example.project.R
 import com.example.project.modals.Team
 import com.example.project.modals.TeamsResponse
 
-class TeamAdapter(private val teams: TeamsResponse?) : RecyclerView.Adapter<TeamAdapter.TeamViewHolder>() {
+class TeamAdapter(private val teams: TeamsResponse?, private val onTeamClick: (String) -> Unit) : RecyclerView.Adapter<TeamAdapter.TeamViewHolder>() {
 
     inner class TeamViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val teamName: TextView = itemView.findViewById(R.id.teamNameTextView)
@@ -41,8 +41,11 @@ class TeamAdapter(private val teams: TeamsResponse?) : RecyclerView.Adapter<Team
         if (teams == null) {
             return
         }
-        val team = teams!![position]
+        val team = teams[position]
         holder.bind(team)
+        holder.itemView.setOnClickListener{
+            onTeamClick.invoke(team.team_key)
+        }
     }
 
     override fun getItemCount(): Int {
