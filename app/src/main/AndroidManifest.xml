@@ -17,7 +17,7 @@
         <activity
             android:name=".activities.TeamDetailsActivity"
             android:exported="false"
-            android:label="@string/title_activity_teams_details"
+            android:label="@string/title_activity_team_details_activity"
             android:theme="@style/Theme.Project" />
         <activity
             android:name=".activities.TeamActivity"
