@@ -62,7 +62,7 @@ class LiveScoreFragment : Fragment() {
                 liveScoreViewModel.getLiveScores()
 
                 // Schedule the next run after 1 minute
-                handler.postDelayed(this, 50 * 1000)
+                handler.postDelayed(this, 60 * 1000)
             }
         }, 0)
     }
