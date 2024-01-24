@@ -31,9 +31,10 @@ class PlayerAdapter(private val players: List<Player>) : RecyclerView.Adapter<Pl
         val playerImage: ImageView = itemView.findViewById(R.id.playerImage)
 
         fun bind(player: Player) {
+
             Glide.with(itemView.context)
-                .load(player.player_image) // Assuming country_logo is the image URL
-                .diskCacheStrategy(DiskCacheStrategy.ALL) // Optional: caching strategy
+                .load(if (!player.player_image.isNullOrEmpty() && player.player_image.length > 1) player.player_image else "https://as1.ftcdn.net/v2/jpg/03/46/83/96/1000_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg")
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(playerImage)
             playerName.text = player.player_name
             playerAge.text = player.player_age
