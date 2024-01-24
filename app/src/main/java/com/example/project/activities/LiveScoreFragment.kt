@@ -8,14 +8,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.project.api.LivescoreAdapter
 import com.example.project.databinding.LivescoreFragmentBinding
+import com.example.project.modals.LeaguesResponseItem
+import com.example.project.modals.LiveScoreResponse
+import com.example.project.modals.LiveScoreResponseItem
 import com.example.project.viewmodals.LiveScoreViewModel
 
 class LiveScoreFragment : Fragment() {
-
+    private lateinit var recyclerView: RecyclerView
     private lateinit var binding: LivescoreFragmentBinding
     private var liveScoreViewModel: LiveScoreViewModel = LiveScoreViewModel()
     private val handler = Handler(Looper.getMainLooper())
+    private var liveScoreList: List<LiveScoreResponseItem> = emptyList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,14 +35,21 @@ class LiveScoreFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        recyclerView = binding.liveScoreTable
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
         liveScoreViewModel.liveScore.observe(viewLifecycleOwner) { liveScoreResponse ->
             liveScoreResponse?.let {
-                if (it != null) {
-                    Log.e("Retrofit livescore", ": ${it}")
+                if (it.isNotEmpty()) {
+                    liveScoreList=it
+                    updateRecyclerView(it)
+
                 }
             }
         }
         startTimer()
+    }
+    private fun updateRecyclerView(livescore: LiveScoreResponse) {
+        recyclerView.adapter = LivescoreAdapter(livescore)
     }
 
     private fun startTimer() {
@@ -45,7 +59,7 @@ class LiveScoreFragment : Fragment() {
                 liveScoreViewModel.getLiveScores()
 
                 // Schedule the next run after 1 minute
-                handler.postDelayed(this, 60 * 1000)
+                handler.postDelayed(this, 50 * 1000)
             }
         }, 0)
     }

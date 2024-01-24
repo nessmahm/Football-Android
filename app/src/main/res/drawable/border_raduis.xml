@@ -1,0 +1,18 @@
+<!-- res/drawable/bottom_border.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="@color/light_gray" /> <!-- Set the background color -->
+            <corners android:radius="8dp" /> <!-- Set the radius for all corners -->
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="@android:color/transparent" />
+            <corners android:radius="8dp" /> <!-- Set the radius for all corners -->
+            <stroke
+                android:color="@color/light_gray"
+                android:width="1dp" /> <!-- Set the width of the border -->
+        </shape>
+    </item>
+</layer-list>
