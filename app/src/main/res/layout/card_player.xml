@@ -17,33 +17,47 @@
 
         <LinearLayout
             android:id="@+id/playerInfoLayout"
-            android:layout_width="150dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="2dp">
+            android:padding="2dp"
+            android:layout_marginEnd="30dp"
+            >
 
             <!-- Player Name -->
             <LinearLayout
                 android:id="@+id/playerNameLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
 
-                <TextView
-                    android:id="@+id/playerNameLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Player Name: "
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                <ImageView
+                    android:id="@+id/playerImage"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="19dp"
+                    android:layout_marginTop="44dp"
+                    android:layout_gravity="center"
+                    />
 
                 <TextView
                     android:id="@+id/playerNameTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
             </LinearLayout>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/playerStatsLayout"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
             <!-- Player Age -->
             <LinearLayout
                 android:id="@+id/playerAgeLayout"
@@ -87,14 +101,6 @@
                     android:layout_height="wrap_content"
                     android:textSize="16sp" />
             </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/playerStatsLayout"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
 
             <!-- Player Goals -->
             <LinearLayout

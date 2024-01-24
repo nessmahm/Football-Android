@@ -3,8 +3,11 @@ package com.example.project.api
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.project.R
 import com.example.project.modals.Player
 
@@ -12,7 +15,6 @@ class PlayerAdapter(private val players: List<Player>) : RecyclerView.Adapter<Pl
 
     inner class PlayerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val playerName: TextView = itemView.findViewById(R.id.playerNameTextView)
-        val playerNameLabel: TextView = itemView.findViewById(R.id.playerNameLabel)
         val playerAge: TextView = itemView.findViewById(R.id.playerAgeTextView)
         val playerAgeLabel: TextView = itemView.findViewById(R.id.playerAgeLabel)
         val playerCountry: TextView = itemView.findViewById(R.id.playerCountryTextView)
@@ -26,8 +28,13 @@ class PlayerAdapter(private val players: List<Player>) : RecyclerView.Adapter<Pl
         val playerRedCardsLabel: TextView = itemView.findViewById(R.id.playerRedCardsLabel)
         val playerYellowCards: TextView = itemView.findViewById(R.id.playerYellowCardsTextView)
         val playerYellowCardsLabel: TextView = itemView.findViewById(R.id.playerYellowCardsLabel)
+        val playerImage: ImageView = itemView.findViewById(R.id.playerImage)
 
         fun bind(player: Player) {
+            Glide.with(itemView.context)
+                .load(player.player_image) // Assuming country_logo is the image URL
+                .diskCacheStrategy(DiskCacheStrategy.ALL) // Optional: caching strategy
+                .into(playerImage)
             playerName.text = player.player_name
             playerAge.text = player.player_age
             playerCountry.text = player.player_country
@@ -35,10 +42,6 @@ class PlayerAdapter(private val players: List<Player>) : RecyclerView.Adapter<Pl
             playerGoals.text = player.player_goals
             playerRedCards.text = player.player_red_cards
             playerYellowCards.text = player.player_yellow_cards
-            if (player.player_name == "") {
-                playerName.visibility = View.GONE
-                playerNameLabel.visibility = View.GONE
-            }
             if (player.player_age == "" ) {
                 playerAge.visibility = View.GONE
                 playerAgeLabel.visibility = View.GONE
