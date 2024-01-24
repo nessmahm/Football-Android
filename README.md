@@ -1,8 +1,6 @@
-<!--- TODO : better application description --->
 # Football Stats App
 
-The Football Stats App is a mobile application that provides information about football leagues, teams, and players. Users can explore a list of leagues, view teams within a league and their players.
-
+The Football Stats App is a mobile application that brings you real-time updates on football leagues, teams, and players. Stay informed with live scores, explore league details, team profiles, and player achievements.<br> The app is designed for easy navigation, providing an enjoyable experience for both casual fans and dedicated enthusiasts. Whether you're interested in match highlights or player statistics, the Football Stats App has you covered.
 # Table of Contents
 
 - [Features](#features)
