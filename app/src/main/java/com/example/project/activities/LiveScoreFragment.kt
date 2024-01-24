@@ -1,9 +1,11 @@
 package com.example.project.activities
 
+import android.content.Loader
+import android.database.Cursor
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
+import android.provider.ContactsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,10 +14,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.project.api.LivescoreAdapter
 import com.example.project.databinding.LivescoreFragmentBinding
-import com.example.project.modals.LeaguesResponseItem
 import com.example.project.modals.LiveScoreResponse
 import com.example.project.modals.LiveScoreResponseItem
 import com.example.project.viewmodals.LiveScoreViewModel
+
 
 class LiveScoreFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
@@ -23,7 +25,8 @@ class LiveScoreFragment : Fragment() {
     private var liveScoreViewModel: LiveScoreViewModel = LiveScoreViewModel()
     private val handler = Handler(Looper.getMainLooper())
     private var liveScoreList: List<LiveScoreResponseItem> = emptyList()
-
+    private val LOADER_CONTACTS = 100
+    private val PERMISSION_CONTACTS = 101
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -63,4 +66,5 @@ class LiveScoreFragment : Fragment() {
             }
         }, 0)
     }
+
 }
