@@ -1,10 +1,8 @@
 <resources>
-    <string name="app_name">project</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="title_activity_teams">TeamsActivity</string>
-    <string name="title_activity_team">TeamActivity</string>
-    <string name="title_activity_teams_details">TeamsDetailsActivity</string>
-    <string name="title_activity_team_details_activityy">TeamDetailsActivityy</string>
-    <string name="title_activity_team_details">teamDetails</string>
-    <string name="title_activity_live_score">LiveScoreActivity</string>
+    <string name="app_name">Football App</string>
+    <string name="title_activity_main">Football App</string>
+    <string name="title_league_activity">Leagues</string>
+    <string name="title_activity_team">Teams</string>
+    <string name="title_activity_team_details_activity">Team Details</string>
+    <string name="title_activity_live_score">Live Score</string>
 </resources>

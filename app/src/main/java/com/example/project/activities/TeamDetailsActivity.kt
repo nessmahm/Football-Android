@@ -18,6 +18,8 @@ class TeamDetailsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Initialize binding
+
+        title = intent.getStringExtra("team_name").toString()
         binding = TeamDetailsActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

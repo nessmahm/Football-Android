@@ -73,14 +73,15 @@ class LeagueFragment : Fragment() {
     }
 
     private fun updateRecyclerView(leagues: List<LeaguesResponseItem>) {
-        recyclerView.adapter = LeagueAdapter(leagues) { leagueId ->
-            navigateToTeamActivity(leagueId)
+        recyclerView.adapter = LeagueAdapter(leagues) { leagueId, leagueName ->
+            navigateToTeamActivity(leagueId, leagueName)
         }
     }
 
-    private fun navigateToTeamActivity(leagueId: String) {
+    private fun navigateToTeamActivity(leagueId: String, leagueName: String) {
         val intent = Intent(requireContext(), TeamActivity::class.java)
         intent.putExtra("league_id", leagueId)
+        intent.putExtra("league_name", leagueName)
         startActivity(intent)
     }
 }

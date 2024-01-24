@@ -14,6 +14,7 @@ class TeamActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        title = intent.getStringExtra("league_name").toString()
         // Initialize binding
         val league : String = intent.getStringExtra("league_id").toString()
         binding = TeamActivityBinding.inflate(layoutInflater)
@@ -22,23 +23,24 @@ class TeamActivity : AppCompatActivity() {
 
         footballViewModel.teams.observe(this) { teamsResponse ->
             teamsResponse?.let {
-                binding.recyclerView.adapter = TeamAdapter(footballViewModel.teams.value ) { team ->
-                    onTeamClicked(team)
+                binding.recyclerView.adapter = TeamAdapter(footballViewModel.teams.value ) { team, teamName ->
+                    onTeamClicked(team, teamName)
                 }
             }
         }
 
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(this@TeamActivity)
-            adapter = TeamAdapter(footballViewModel.teams.value) { team ->
-                onTeamClicked(team)
+            adapter = TeamAdapter(footballViewModel.teams.value) { team, teamName ->
+                onTeamClicked(team, teamName)
             }
         }
     }
 
-    private fun onTeamClicked(teamId: String) {
+    private fun onTeamClicked(teamId: String, teamName: String) {
         val intent = Intent(this, TeamDetailsActivity::class.java)
         intent.putExtra("team_id", teamId)
+        intent.putExtra("team_name", teamName)
         startActivity(intent)
     }
 

@@ -12,7 +12,7 @@ import com.example.project.modals.LeaguesResponseItem
 
 class LeagueAdapter(
     private val leagues: List<LeaguesResponseItem>,
-    private val onLeagueClick: (String) -> Unit
+    private val onLeagueClick: (String, String) -> Unit
 ) : RecyclerView.Adapter<LeagueAdapter.LeaguesViewHolder>() {
 
     inner class LeaguesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -43,7 +43,7 @@ class LeagueAdapter(
             holder.bind(league)
 
             holder.itemView.setOnClickListener {
-                onLeagueClick.invoke(league.league_id)
+                onLeagueClick.invoke(league.league_id, league.league_name)
             }
         }
     }
